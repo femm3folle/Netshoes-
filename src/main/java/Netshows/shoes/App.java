@@ -12,6 +12,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import Netshows.pages.TelaInicio;
+import Netshows.pages.TelaLoginNetshoes;
+
 public class App {
 	private static WebDriver driver;
 	private static WebDriverWait espera;
@@ -64,12 +67,24 @@ public class App {
 	@Test
 	public void fazerLogin()
 
-	{   
+	{
 		entrarNetshoes();
 		loginNetshoes();
 		sairNetshoes();
 		assertTrue(validaExit());
 
+	}
+	
+	@Test
+	public void fazerLoginPageObject()
+
+	{   
+		TelaInicio telaInicio = new TelaInicio(driver);
+		TelaLoginNetshoes telaLoginNetshoes = telaInicio.entrarNetshoes();
+		telaLoginNetshoes.loginNetshoes();
+	    telaInicio.sairNetshoes();
+	    assertTrue(telaInicio.validaExit());
+		
 	}
 
 	@AfterClass

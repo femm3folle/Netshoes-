@@ -18,19 +18,19 @@ public class TelaInicio {
 		espera = new WebDriverWait(driver, 21);
 	}
 
-	public void loginNetshoes() {
-		WebElement lnkCheck;
-
-		driver = null;
-		WebElement txtNome = driver.findElement(By.id("username"));
-		txtNome.sendKeys("22889474895");
-		WebElement txtPw = driver.findElement(By.id("password"));
-		txtPw.sendKeys("rsi123456");
-		lnkCheck = driver.findElement(By.id("login-button"));
-		lnkCheck.click();
+	public TelaLoginNetshoes entrarNetshoes() {
+		WebElement lnkEntrar;
+		WebElement lnkLogin;
+		lnkEntrar = driver.findElement(By.linkText("Entrar"));
+		lnkEntrar.click();
+		lnkLogin = driver.findElement(By.linkText("Login"));
+		lnkLogin.click();
+		return new TelaLoginNetshoes(driver);
 	}
 
-	public void sairNetshoes() {
+
+
+	public TelaInicio sairNetshoes() {
 		WebElement lnkIrineu;
 		WebElement lnkExit;
 		lnkIrineu = espera.until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Olá")));
@@ -38,6 +38,7 @@ public class TelaInicio {
 		lnkIrineu.click();
 		lnkExit = driver.findElement(By.linkText("Sair"));
 		lnkExit.click();
+		return this;
 	}
      
 	public boolean validaExit() {

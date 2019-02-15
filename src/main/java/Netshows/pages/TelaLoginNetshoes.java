@@ -1,28 +1,27 @@
 package Netshows.pages;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TelaLoginNetshoes {
-	private static WebDriverWait espera;
+	//private static WebDriverWait espera;
 	private WebDriver driver;
 
 	public TelaLoginNetshoes(WebDriver driver) {
-		this.driver =driver;
-		espera = new WebDriverWait(driver, 21);
-	}
-	
-	@Test 
-	public void entrarNetshoes() {
-		WebElement lnkEntrar;
-		WebElement lnkLogin;
-		lnkEntrar = driver.findElement(By.linkText("Entrar"));
-		lnkEntrar.click();
-		lnkLogin = driver.findElement(By.linkText("Login"));
-		lnkLogin.click();
+		this.driver = driver;
+		//espera = new WebDriverWait(driver, 21);
 	}
 
+	public TelaInicio loginNetshoes() {
+		WebElement lnkCheck;
+
+		WebElement txtNome = driver.findElement(By.id("username"));
+		txtNome.sendKeys("22889474895");
+		WebElement txtPw = driver.findElement(By.id("password"));
+		txtPw.sendKeys("rsi123456");
+		lnkCheck = driver.findElement(By.id("login-button"));
+		lnkCheck.click();
+		return new TelaInicio(driver);
+	}
 }
