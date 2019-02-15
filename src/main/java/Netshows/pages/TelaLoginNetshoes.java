@@ -15,7 +15,7 @@ public class TelaLoginNetshoes {
 		espera = new WebDriverWait(driver, 21);
 	}
 	
-	@Test
+	@Test 
 	public void entrarNetshoes() {
 		WebElement lnkEntrar;
 		WebElement lnkLogin;
